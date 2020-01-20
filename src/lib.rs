@@ -39,6 +39,9 @@
 
 use crate::utils::NetInt;
 
+#[cfg(windows)]
+extern crate parking_lot;
+
 #[cfg(any(unix, target_os = "redox"))]
 use libc::{sockaddr_storage, socklen_t};
 #[cfg(windows)]
@@ -56,6 +59,7 @@ mod sys;
 #[cfg(windows)]
 #[path = "sys/windows.rs"]
 mod sys;
+
 
 /// Newtype, owned, wrapper around a system socket.
 ///

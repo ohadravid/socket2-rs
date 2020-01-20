@@ -15,6 +15,9 @@ edition = "2018"
 [package.metadata.docs.rs]
 all-features = true
 
+[target."cfg(windows)".dependencies.parking_lot]
+version = "0.10"
+
 [target."cfg(windows)".dependencies.winapi]
 version = "0.3.3"
 features = ["handleapi", "ws2def", "ws2ipdef", "ws2tcpip", "minwindef"]
